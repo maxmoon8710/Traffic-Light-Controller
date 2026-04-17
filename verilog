@@ -1,0 +1,102 @@
+/*
+ Element Usage Report
+ Button - 1 times
+ DflipFlop - 3 times
+ AndGate - 4 times
+ DigitalLed - 6 times
+ OrGate - 1 times
+ NotGate - 1 times
+ Clock - 1 times
+ Power - 1 times
+ Ground - 1 times
+*/
+/*
+ Usage Instructions and Tips
+ Labels - Ensure unique label names and avoid using verilog keywords
+ Warnings - Connect all optional inputs to remove warnings
+ Button - Buttons are not natively supported in verilog, consider using Inputs instead
+ Clock - Use a single global clock
+*/
+// Sample Testbench Code - Uncomment to use
+/*
+module TestBench();
+ reg clk_0;
+ Main DUT0(clk_0);
+ always begin
+ #10
+ clk_0 = 0;
+ #10
+ clk_0 = 1;
+ end
+ initial begin
+ #15
+ #10
+ $finish;
+ end
+endmodule
+*/
+module Main(clk_0);
+ input clk_0;
+ wire Button_0_out, DflipFlop_2_Q, DflipFlop_2_Q_inv, and_3_out, and_1_out,
+DflipFlop_1_Q, DflipFlop_1_Q_inv, and_2_out, or_0_out, and_0_out, DflipFlop_0_Q,
+DflipFlop_0_Q_inv, not_0_out, Power_0_out, Ground_0_out;
+ Button0 Button_0(Button_0_out);
+ DflipFlop DflipFlop_2(DflipFlop_2_Q, DflipFlop_2_Q_inv, clk_0, Button_0_out,
+Ground_0_out, Ground_0_out, Power_0_out);
+ assign and_3_out = DflipFlop_2_Q_inv & and_2_out;
+
+ always @ (*)
+ $display("DigitalLed:G1=%d", and_3_out);
+
+ always @ (*)
+ $display("DigitalLed:A1=%d", DflipFlop_2_Q);
+ assign and_1_out = not_0_out & DflipFlop_2_Q;
+ DflipFlop DflipFlop_1(DflipFlop_1_Q, DflipFlop_1_Q_inv, clk_0, and_1_out, Ground_0_out,
+Ground_0_out, Power_0_out);
+ assign and_2_out = DflipFlop_0_Q_inv & DflipFlop_1_Q_inv;
+
+ always @ (*)
+ $display("DigitalLed:R2=%d", and_2_out);
+
+ always @ (*)
+ $display("DigitalLed:G2=%d", DflipFlop_1_Q);
+ assign or_0_out = DflipFlop_0_Q | DflipFlop_1_Q;
+
+ always @ (*)
+ $display("DigitalLed:R1=%d", or_0_out);
+ assign and_0_out = not_0_out & DflipFlop_1_Q;
+ DflipFlop DflipFlop_0(DflipFlop_0_Q, DflipFlop_0_Q_inv, clk_0, and_0_out, Ground_0_out,
+Ground_0_out, Power_0_out);
+
+ always @ (*)
+ $display("DigitalLed:A2=%d", DflipFlop_0_Q);
+ assign not_0_out = ~Button_0_out;
+ assign Power_0_out = ~1'b0;
+ assign Ground_0_out = 1'b0;
+endmodule
+// Skeleton for Button0
+ /*
+ module Button0(out);
+ output reg out;
+
+ initial begin
+ //do something with the button here
+ end
+ endmodule
+ */
+
+module DflipFlop(q, q_inv, clk, d, a_rst, pre, en);
+ parameter WIDTH = 1;
+ output reg [WIDTH-1:0] q, q_inv;
+ input clk, a_rst, pre, en;
+ input [WIDTH-1:0] d;
+ always @ (posedge clk or posedge a_rst)
+ if (a_rst) begin
+ q <= 'b0;
+ q_inv <= 'b1;
+ end else if (en == 0) ;
+ else begin
+ q <= d;
+ q_inv <= ~d;
+ end
+endmodule
