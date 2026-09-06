@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TrafficLight_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TrafficLight_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="145.001 ns"></ZoomEndTime>
+      <Cursor1Time time="144.753 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="155"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/TrafficLight_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/B" type="logic">
+      <obj_property name="ElementShortName">B</obj_property>
+      <obj_property name="ObjectShortName">B</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/G1" type="logic">
+      <obj_property name="ElementShortName">G1</obj_property>
+      <obj_property name="ObjectShortName">G1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/A1" type="logic">
+      <obj_property name="ElementShortName">A1</obj_property>
+      <obj_property name="ObjectShortName">A1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/R1" type="logic">
+      <obj_property name="ElementShortName">R1</obj_property>
+      <obj_property name="ObjectShortName">R1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/G2" type="logic">
+      <obj_property name="ElementShortName">G2</obj_property>
+      <obj_property name="ObjectShortName">G2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/A2" type="logic">
+      <obj_property name="ElementShortName">A2</obj_property>
+      <obj_property name="ObjectShortName">A2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TrafficLight_tb/R2" type="logic">
+      <obj_property name="ElementShortName">R2</obj_property>
+      <obj_property name="ObjectShortName">R2</obj_property>
+   </wvobject>
+</wave_config>
